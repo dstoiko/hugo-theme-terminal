@@ -13,6 +13,11 @@
       {{ . }}
     </span>
     {{ end }}
+    {{ with .ReadingTime }}
+    <span class="post-reading-time">::
+      {{ . }}-min read
+    </span>
+    {{ end }}
   </div>
 
   {{ if .Params.tags }}
@@ -29,6 +34,7 @@
 
   <div class="post-content">
     {{ .Content }}
+    {{ partial "clock.html" }}
   </div>
   {{ if or .NextInSection .PrevInSection }}
   <div class="pagination">
