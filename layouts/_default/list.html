@@ -17,8 +17,16 @@
       <span class="post-date">
         {{ .Date.Format "2006-01-02" }}
       </span>
-      {{ with .Params.Author }}<span class="post-author">::
-        {{ . }}</span>{{ end }}
+      {{ with .Params.Author }}
+      <span class="post-author">
+        :: {{ . }}
+      </span>
+      {{ end }}
+      {{ with .ReadingTime }}
+      <span class="post-author">
+        :: {{ . }}-min read
+      </span>
+      {{ end }}
     </div>
 
     {{ if .Params.tags }}
